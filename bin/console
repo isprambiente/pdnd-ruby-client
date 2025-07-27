@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+# rubocop:disable Layout/LeadingCommentSpace
+
+require 'bundler/setup'
+require 'json'
+require 'pdnd_ruby_client'
+
+# You can add fixtures and/or initialization code here to make experimenting
+# with your gem easier. You can also use a different console, if you like.
+
+require 'irb'
+
+env = 'collaudo'
+config = PDND::ConfigLoader.load('configs/rendis.json', env)
+jwt = PDND::JWTGenerator.new(config, env)
+jwt.debug = true
+@issuer = jwt.issuer
+@client_id = jwt.client_id
+@audience = jwt.audience
+@purpose_id = jwt.purpose_id
+@endpoint = jwt.endpoint
+@assertion = jwt.assertion
+token, exp = jwt.generate_token
+client = PDND::Client.new(config)
+client.verify_ssl = env == 'produzione'
+client.debug = true
+client.token = token
+client.token_exp = exp
+client.api_url = 'https://pdnd-test.isprambiente.it/rest/rendis/v1/oas/rendis/api/v1/infoDissesto'
+client.filters = 'id_intervento=001/B2'
+client.status_url = 'https://pdnd-test.isprambiente.it/rest/rendis/v1/status'
+_code, status = client.check_status
+puts "Check stato #{status}" if client.debug
+
+_code, body = client.request_api
+
+puts JSON.pretty_generate(body)
+
+IRB.start(__FILE__)

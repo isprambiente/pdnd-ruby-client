@@ -1,0 +1,206 @@
+PATH
+  remote: .
+  specs:
+    pdnd_ruby_client (0.1.0)
+      dotenv (~> 2.8)
+      faraday (~> 2.13)
+      json (~> 2.0)
+      jwt (~> 3.1)
+      net-http (~> 0.3, >= 0.3.2)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (8.0.2)
+      base64
+      benchmark (>= 0.3)
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.3.1)
+      connection_pool (>= 2.2.5)
+      drb
+      i18n (>= 1.6, < 2)
+      logger (>= 1.4.2)
+      minitest (>= 5.1)
+      securerandom (>= 0.3)
+      tzinfo (~> 2.0, >= 2.0.5)
+      uri (>= 0.13.1)
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
+    ast (2.4.3)
+    async (2.27.0)
+      console (~> 1.29)
+      fiber-annotation
+      io-event (~> 1.11)
+      metrics (~> 0.12)
+      traces (~> 0.15)
+    async-http (0.89.0)
+      async (>= 2.10.2)
+      async-pool (~> 0.9)
+      io-endpoint (~> 0.14)
+      io-stream (~> 0.6)
+      metrics (~> 0.12)
+      protocol-http (~> 0.49)
+      protocol-http1 (~> 0.30)
+      protocol-http2 (~> 0.22)
+      traces (~> 0.10)
+    async-http-faraday (0.22.0)
+      async-http (~> 0.42)
+      faraday
+    async-pool (0.11.0)
+      async (>= 2.0)
+    base64 (0.3.0)
+    benchmark (0.4.1)
+    bigdecimal (3.2.2)
+    concurrent-ruby (1.3.5)
+    connection_pool (2.5.3)
+    console (1.32.0)
+      fiber-annotation
+      fiber-local (~> 1.1)
+      json
+    date (3.4.1)
+    diff-lcs (1.6.2)
+    docile (1.4.1)
+    dotenv (2.8.1)
+    drb (2.2.3)
+    erb (5.0.2)
+    faraday (2.13.4)
+      faraday-net_http (>= 2.0, < 3.5)
+      json
+      logger
+    faraday-http-cache (2.5.1)
+      faraday (>= 0.8)
+    faraday-net_http (3.4.1)
+      net-http (>= 0.5.0)
+    fiber-annotation (0.2.0)
+    fiber-local (1.1.0)
+      fiber-storage
+    fiber-storage (1.0.1)
+    github_changelog_generator (1.16.4)
+      activesupport
+      async (>= 1.25.0)
+      async-http-faraday
+      faraday-http-cache
+      multi_json
+      octokit (~> 4.6)
+      rainbow (>= 2.2.1)
+      rake (>= 10.0)
+    i18n (1.14.7)
+      concurrent-ruby (~> 1.0)
+    io-console (0.8.1)
+    io-endpoint (0.15.2)
+    io-event (1.12.1)
+    io-stream (0.10.0)
+    irb (1.15.2)
+      pp (>= 0.6.0)
+      rdoc (>= 4.0.0)
+      reline (>= 0.4.2)
+    json (2.13.1)
+    jwt (3.1.2)
+      base64
+    language_server-protocol (3.17.0.5)
+    lint_roller (1.1.0)
+    logger (1.7.0)
+    metrics (0.12.2)
+    minitest (5.25.5)
+    multi_json (1.17.0)
+    net-http (0.6.0)
+      uri
+    octokit (4.25.1)
+      faraday (>= 1, < 3)
+      sawyer (~> 0.9)
+    parallel (1.27.0)
+    parser (3.3.9.0)
+      ast (~> 2.4.1)
+      racc
+    pp (0.6.2)
+      prettyprint
+    prettyprint (0.2.0)
+    prism (1.4.0)
+    protocol-hpack (1.5.1)
+    protocol-http (0.51.0)
+    protocol-http1 (0.34.1)
+      protocol-http (~> 0.22)
+    protocol-http2 (0.22.1)
+      protocol-hpack (~> 1.4)
+      protocol-http (~> 0.47)
+    psych (5.2.6)
+      date
+      stringio
+    public_suffix (6.0.2)
+    racc (1.8.1)
+    rainbow (3.1.1)
+    rake (13.3.0)
+    rdoc (6.14.2)
+      erb
+      psych (>= 4.0.0)
+    regexp_parser (2.10.0)
+    reline (0.6.2)
+      io-console (~> 0.5)
+    rspec (3.13.1)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.5)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.4)
+    rubocop (1.79.0)
+      json (~> 2.3)
+      language_server-protocol (~> 3.17.0.2)
+      lint_roller (~> 1.1.0)
+      parallel (~> 1.10)
+      parser (>= 3.3.0.2)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 2.9.3, < 3.0)
+      rubocop-ast (>= 1.46.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      tsort (>= 0.2.0)
+      unicode-display_width (>= 2.4.0, < 4.0)
+    rubocop-ast (1.46.0)
+      parser (>= 3.3.7.2)
+      prism (~> 1.4)
+    ruby-progressbar (1.13.0)
+    sawyer (0.9.2)
+      addressable (>= 2.3.5)
+      faraday (>= 0.17.3, < 3)
+    securerandom (0.4.1)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.13.2)
+    simplecov_json_formatter (0.1.4)
+    stringio (3.1.7)
+    traces (0.15.2)
+    tsort (0.2.0)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
+    unicode-display_width (3.1.4)
+      unicode-emoji (~> 4.0, >= 4.0.4)
+    unicode-emoji (4.0.4)
+    uri (1.0.3)
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  dotenv (~> 2.8)
+  faraday (~> 2.13)
+  github_changelog_generator
+  irb
+  json (>= 2.0)
+  jwt (~> 3.1)
+  pdnd_ruby_client!
+  rdoc
+  rspec (~> 3.12)
+  rubocop (~> 1.58)
+  simplecov (~> 0.22)
+
+BUNDLED WITH
+   2.7.1

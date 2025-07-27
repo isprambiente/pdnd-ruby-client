@@ -1,0 +1,32 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        ruby-version: ['3.2', '3.3', '3.4']
+
+    name: Test with Ruby ${{ matrix.ruby-version }}
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🧰 Setup Ruby ${{ matrix.ruby-version }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+
+      - name: 📦 Install dependencies
+        run: |
+          bundle install --jobs 4 --retry 3
+
+      - name: 🧪 Run RSpec
+        run: bundle exec rspec
+
+      - name: 👮 Run RuboCop
+        run: bundle exec rubocop

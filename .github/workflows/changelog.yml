@@ -1,0 +1,38 @@
+name: 📚 Generate Changelog
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
+      - name: 📦 Install dependencies
+        run: |
+          gem install github_changelog_generator
+
+      - name: 📚 Generate CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          github_changelog_generator \
+            --user tuo_user_github \
+            --project nome_repo \
+            --token $GITHUB_TOKEN
+
+      - name: 🔁 Commit and Push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add CHANGELOG.md
+          git commit -m "📚 Update CHANGELOG.md"
+          git push

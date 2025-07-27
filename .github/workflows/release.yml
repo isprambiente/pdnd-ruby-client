@@ -1,0 +1,44 @@
+name: 🚀 Gem Release
+
+on:
+  push:
+    tags:
+      - 'v*' # Trigger su versioni come v1.2.3
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        ruby-version: ['3.2', '3.3', '3.4']
+
+    name: Publish with Ruby ${{ matrix.ruby-version }}
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🧰 Setup Ruby ${{ matrix.ruby-version }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+
+      - name: 📦 Install dependencies
+        run: |
+          bundle install --jobs 4 --retry 3
+
+      - name: ✅ Run tests
+        run: bundle exec rspec
+
+      - name: 👮 RuboCop linting
+        run: bundle exec rubocop
+
+      - name: 📤 Build gem
+        run: gem build pdnd_ruby_client.gemspec
+
+      - name: 🔐 Push to RubyGems
+        if: matrix.ruby-version == '3.2' # Rilascia solo una volta!
+        env:
+          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+        run: gem push *.gem
