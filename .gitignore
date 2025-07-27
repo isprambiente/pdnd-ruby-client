@@ -7,3 +7,5 @@ configs/*
 keys
 *.gem
 CHANGELOG.md
+tmp/*
+!tmp/.gitkeep

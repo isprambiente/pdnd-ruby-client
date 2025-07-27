@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# spec/pdnd_ruby_client/config_loader_spec.rb
+# spec/pdnd-ruby-client/config_loader_spec.rb
 
 require 'spec_helper'
-require 'pdnd_ruby_client/config_loader'
+require 'pdnd-ruby-client/config_loader'
 require 'json'
 
 # rubocop:disable Metrics/BlockLength

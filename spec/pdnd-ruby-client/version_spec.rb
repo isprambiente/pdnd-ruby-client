@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'pdnd_ruby_client'
+require 'pdnd-ruby-client'
 
 RSpec.describe PDND::ClientVersion do
   it 'ha una VERSION definita' do

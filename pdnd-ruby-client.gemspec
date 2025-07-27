@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'lib/pdnd_ruby_client/version'
+require_relative 'lib/pdnd-ruby-client/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'pdnd_ruby_client'
+  spec.name          = 'pdnd-ruby-client'
   spec.version       = PDND::ClientVersion::VERSION
   spec.authors       = ['Francesco Loreti']
   spec.email         = ['francesco.loreti@isprambiente.it']

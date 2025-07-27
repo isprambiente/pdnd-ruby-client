@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# spec/pdnd_ruby_client/client_spec.rb
+# spec/pdnd-ruby-client/client_spec.rb
 
 require 'spec_helper'
-require 'pdnd_ruby_client/client'
+require 'pdnd-ruby-client/client'
 
 # rubocop:disable Metrics/BlockLength
 RSpec.describe PDND::Client do

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# spec/pdnd_ruby_client/jwt_generator_spec.rb
+# spec/pdnd-ruby-client/jwt_generator_spec.rb
 
 require 'spec_helper'
-require 'pdnd_ruby_client/jwt_generator'
+require 'pdnd-ruby-client/jwt_generator'
 
 RSpec.describe PDND::JWTGenerator do
   let(:config) do

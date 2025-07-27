@@ -39,7 +39,7 @@ MIT
 ## Istruzioni base
 
 ```ruby
-require "pdnd_ruby_client"
+require "pdnd-ruby-client"
 
 # Inizializza la configurazione
 # Load the configuration from the specified JSON file and environment key.
@@ -62,7 +62,7 @@ puts body
 
 ```ruby
 
-require "pdnd_ruby_client"
+require "pdnd-ruby-client"
 
 # Inizializza la configurazione
 # Load the configuration from the specified JSON file and environment key.

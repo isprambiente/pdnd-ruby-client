@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pdnd_ruby_client (0.1.0)
+    pdnd-ruby-client (0.1.0)
       dotenv (~> 2.8)
       faraday (~> 2.13)
       json (~> 2.0)
@@ -196,7 +196,7 @@ DEPENDENCIES
   irb
   json (>= 2.0)
   jwt (~> 3.1)
-  pdnd_ruby_client!
+  pdnd-ruby-client!
   rdoc
   rspec (~> 3.12)
   rubocop (~> 1.58)

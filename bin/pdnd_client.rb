@@ -3,7 +3,7 @@
 #!/usr/bin/env ruby # rubocop:disable Layout/LeadingCommentSpace
 
 require 'optparse'
-require_relative '../lib/pdnd_ruby_client'
+require_relative '../lib/pdnd-ruby-client'
 
 options = {
   env: 'produzione',

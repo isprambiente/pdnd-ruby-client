@@ -36,7 +36,7 @@ jobs:
         run: bundle exec rubocop
 
       - name: 📤 Build gem
-        run: gem build pdnd_ruby_client.gemspec
+        run: gem build pdnd-ruby-client.gemspec
 
       - name: 🔐 Push to RubyGems
         if: matrix.ruby-version == '3.2' # Rilascia solo una volta!
