@@ -6,3 +6,4 @@ configs/*
 .env
 keys
 *.gem
+CHANGELOG.md
