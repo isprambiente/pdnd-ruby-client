@@ -18,9 +18,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'github_changelog_generator'
   gem 'irb'
   gem 'rdoc'
-  gem 'github_changelog_generator'
 end
 
 group :test do

@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata = {
     'homepage_uri' => spec.homepage,
-    'changelog_uri' => "https://github.com/isprambiente/pdnd-ruby-client/changelog.md",
+    'changelog_uri' => 'https://github.com/isprambiente/pdnd-ruby-client/changelog.md',
     'rubygems_mfa_required' => 'true'
   }
 
