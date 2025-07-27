@@ -26,7 +26,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           github_changelog_generator \
-            --user francesco-loreti \
+            --user isprambiente \
             --project pdnd-ruby-client \
             --token $GITHUB_TOKEN
 
