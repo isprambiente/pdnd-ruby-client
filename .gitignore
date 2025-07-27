@@ -7,5 +7,6 @@ configs/*
 keys
 *.gem
 CHANGELOG.md
-tmp/*
+# Ignora tutto tranne .gitkeep
+tmp/**
 !tmp/.gitkeep
