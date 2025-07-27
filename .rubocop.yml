@@ -125,6 +125,8 @@ Metrics/CollectionLiteralLength: # new in 1.47
   Enabled: true
 Metrics/AbcSize:
   Enabled: false
+Naming/FileName:
+  Enabled: false
 Naming/BlockForwarding: # new in 1.24
   Enabled: true
 Naming/PredicateMethod: # new in 1.76
