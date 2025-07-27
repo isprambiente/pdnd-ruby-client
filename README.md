@@ -1,4 +1,4 @@
-# pdnd-ruby-client
+# pdnd-ruby-client ![CI](https://img.shields.io/github/actions/workflow/status/isprambiente/pdnd-ruby-client/README.md) ![Versione Ruby](https://img.shields.io/badge/ruby-%3E%3D3.2-blue) ![Licenza MIT](https://img.shields.io/badge/license-MIT-green)
 
 Client Ruby per autenticazione e interazione con le API della Piattaforma Digitale Nazionale Dati (PDND).
 
@@ -12,9 +12,9 @@ MIT
 
 ## Installazione
 
-1. Installa la libreria via composer:
+1. Installa la libreria al tuo Gemfile:
    ```bash
-   gem install pdnd-ruby-client
+   gem 'pdnd-ruby-client'
    ```
 
 2. Configura il file JSON con i parametri richiesti (esempio in `configs/sample.json`):
@@ -51,7 +51,7 @@ client.token = token
 client.token_exp = exp
 client.api_url="https://www.tuogateway.example.it/indirizzo/della/api"
 client.filters="id=1234"
-code, body = client.get_api
+code, body = client.request_api
 
 # Stampa il risultato
 puts body
@@ -91,12 +91,12 @@ client.api_url="https://www.tuogateway.example.it/indirizzo/della/api"
 #      - Array: ["parametro1=1", "parametro2=test", ...]
 #      - Hash: {"parametro1" => 1, "parametro2" => "test", ... }
 # sarà la funzione a verificare la tipologia e a convertire i filtri nel formato corretto.
-# se il formato non fosse corretto, la funzione "get_api" restituisce errore.
+# se il formato non fosse corretto, la funzione "request_api" restituisce errore.
 client.filters="id=1234"
 # Richiama la api
 # @return code Number
 # @return body Json
-code, body = client.get_api
+code, body = client.request_api
 
 # Stampa il risultato
 puts body
