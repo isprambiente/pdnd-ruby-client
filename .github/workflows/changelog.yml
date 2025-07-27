@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:     # Possibilità di lanciarlo manualmente
 
 jobs:
   changelog:
