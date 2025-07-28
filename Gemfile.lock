@@ -1,8 +1,7 @@
 PATH
   remote: .
   specs:
-    pdnd-ruby-client (0.1.0)
-      dotenv (~> 2.8)
+    pdnd-ruby-client (0.1.2)
       faraday (~> 2.13)
       json (~> 2.0)
       jwt (~> 3.1)
@@ -60,7 +59,6 @@ GEM
     date (3.4.1)
     diff-lcs (1.6.2)
     docile (1.4.1)
-    dotenv (2.8.1)
     drb (2.2.3)
     erb (5.0.2)
     faraday (2.13.4)
@@ -190,7 +188,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  dotenv (~> 2.8)
   faraday (~> 2.13)
   github_changelog_generator
   irb
