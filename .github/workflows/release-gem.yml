@@ -1,0 +1,55 @@
+name: 🚀 Release Gem
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔁 Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: 💎 Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+
+      - name: 📦 Install dependencies
+        run: gem install github_changelog_generator
+
+      - name: 📚 Generate CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          github_changelog_generator \
+            --user isprambiente \
+            --project pdnd-ruby-client \
+            --token $GITHUB_TOKEN \
+            --future-release ${{ github.event.release.tag_name }}
+
+      - name: 🔍 Check for changes
+        id: changes
+        run: |
+          git diff --exit-code CHANGELOG.md || echo "modified=true" >> $GITHUB_OUTPUT
+
+      - name: 📤 Commit and Push CHANGELOG.md
+        if: steps.changes.outputs.modified == 'true'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add CHANGELOG.md
+          git commit -m "📚 Update CHANGELOG for release ${{ github.event.release.tag_name }}"
+          git push origin main
+
+      - name: 🪄 Build the gem
+        run: gem build pdnd-ruby-client.gemspec
+
+      - name: 🚀 Publish to RubyGems
+        env:
+          RUBYGEMS_AUTH_TOKEN: ${{ secrets.RUBYGEMS_API_KEY }}
+        run: gem push pdnd-ruby-client-*.gem
