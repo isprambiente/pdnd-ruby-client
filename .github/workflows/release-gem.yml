@@ -51,5 +51,5 @@ jobs:
 
       - name: 🚀 Publish to RubyGems
         env:
-          RUBYGEMS_AUTH_TOKEN: ${{ secrets.RUBYGEMS_API_KEY }}
+          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
         run: gem push pdnd-ruby-client-*.gem
