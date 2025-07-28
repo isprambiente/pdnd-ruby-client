@@ -36,6 +36,7 @@ Gem::Specification.new do |spec|
   spec.executables = tracked_files.grep(%r{\Abin/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'dotenv', '~> 3.1'
   spec.add_dependency 'faraday', '~> 2.13'
   spec.add_dependency 'json', '~> 2.0'
   spec.add_dependency 'jwt', '~> 3.1'

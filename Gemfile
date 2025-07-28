@@ -6,6 +6,7 @@ source 'https://rubygems.org'
 gemspec
 
 # Gemme runtime
+gem 'dotenv', '~> 3.1'
 gem 'faraday', '~> 2.13'
 gem 'json', '>= 2.0'
 gem 'jwt', '~> 3.1'

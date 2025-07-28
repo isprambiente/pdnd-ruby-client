@@ -59,6 +59,7 @@ GEM
     date (3.4.1)
     diff-lcs (1.6.2)
     docile (1.4.1)
+    dotenv (3.1.8)
     drb (2.2.3)
     erb (5.0.2)
     faraday (2.13.4)
@@ -188,6 +189,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  dotenv (~> 3.1)
   faraday (~> 2.13)
   github_changelog_generator
   irb
