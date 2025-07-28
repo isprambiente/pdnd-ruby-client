@@ -5,6 +5,7 @@ configs/*
 !configs/sample.json
 .env
 keys
+.gem
 *.gem
 CHANGELOG.md
 # Ignora tutto tranne .gitkeep
