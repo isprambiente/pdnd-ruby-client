@@ -26,7 +26,7 @@ module PDND
   #   generator = PDND::JWTGenerator.new(config)
   #   token, exp = generator.generate_token
   class JWTGenerator
-    attr_accessor :env, :config, :debug, :issuer, :client_id, :priv_key_path,
+    attr_accessor :env, :config, :debug, :issuer, :client_id, :priv_key, :priv_key_path,
                   :purpose_id, :kid, :endpoint, :audience, :assertion,
                   :token, :token_exp
 
@@ -65,6 +65,7 @@ module PDND
     def assign_config_values(config)
       @issuer        = config[:issuer]
       @client_id     = config[:clientId]
+      @priv_key      = config[:privKey]
       @priv_key_path = config[:privKeyPath]
       @kid           = config[:kid]
       @purpose_id    = config[:purposeId]
@@ -84,7 +85,19 @@ module PDND
     # @return [OpenSSL::PKey::RSA] Chiave privata RSA
     # @raise [PDND::ConfigError] Se la chiave è invalida o il file non esiste
     def load_private_key
-      OpenSSL::PKey::RSA.new(File.read(@priv_key_path))
+      key = nil
+
+      if @priv_key.to_s.strip != ""
+        key = @priv_key
+        debug_log('✅ Priv Key acquisita manualmente', '**********')
+      elsif @priv_key_path.to_s.strip != ""
+        key = File.read(@priv_key_path)
+        debug_log('✅ Priv Key acquisita da file', '**********')
+      else
+        raise PDND::ConfigError, "❌ Nessuna chiave privata o percorso fornito"
+      end
+
+      OpenSSL::PKey::RSA.new(key)
     rescue OpenSSL::PKey::RSAError => e
       raise PDND::ConfigError, "❌ Chiave privata non valida: #{e.message}"
     rescue Errno::ENOENT => e
