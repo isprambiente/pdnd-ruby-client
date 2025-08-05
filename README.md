@@ -58,7 +58,7 @@ puts body
 
 ```
 
-## Passa la chiave privata manualmente (disponibile dalla v.0.1.3)
+## Passa la chiave privata manualmente (disponibile dalla v.0.1.4)
 ```ruby
 require "pdnd-ruby-client"
 
