@@ -58,6 +58,31 @@ puts body
 
 ```
 
+## Passa la chiave privata manualmente (disponibile dalla v.0.1.3)
+```ruby
+require "pdnd-ruby-client"
+
+# Inizializza la configurazione
+# Load the configuration from the specified JSON file and environment key.
+config = PDND::ConfigLoader.load("configs/sample.json")
+jwt = PDND::JWTGenerator.new(config)
+# Inserisci tutta la chiave privata.
+# La chiave privata passata manualmente ha la priorità
+#    rispetto a quella inserita nel config file json.
+jwt.priv_key = "-----BEGIN PRIVATE KEY-----"
+token, exp = jwt.generate_token
+client = PDND::Client.new(config)
+client.token = token
+client.token_exp = exp
+client.api_url="https://www.tuogateway.example.it/indirizzo/della/api"
+client.filters="id=1234"
+code, body = client.request_api
+
+# Stampa il risultato
+puts body
+
+```
+
 ## Leggi e Salva il token
 
 ```ruby
