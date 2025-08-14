@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pdnd-ruby-client (0.1.4)
+    pdnd-ruby-client (0.1.5)
       dotenv (~> 3.1)
       faraday (~> 2.13)
       json (~> 2.0)
@@ -11,7 +11,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (8.0.2)
+    activesupport (8.0.2.1)
       base64
       benchmark (>= 0.3)
       bigdecimal
@@ -33,9 +33,9 @@ GEM
       io-event (~> 1.11)
       metrics (~> 0.12)
       traces (~> 0.15)
-    async-http (0.89.0)
+    async-http (0.90.1)
       async (>= 2.10.2)
-      async-pool (~> 0.9)
+      async-pool (~> 0.11)
       io-endpoint (~> 0.14)
       io-stream (~> 0.6)
       metrics (~> 0.12)
@@ -43,7 +43,7 @@ GEM
       protocol-http1 (~> 0.30)
       protocol-http2 (~> 0.22)
       traces (~> 0.10)
-    async-http-faraday (0.22.0)
+    async-http-faraday (0.22.1)
       async-http (~> 0.42)
       faraday
     async-pool (0.11.0)
@@ -117,7 +117,7 @@ GEM
     prettyprint (0.2.0)
     prism (1.4.0)
     protocol-hpack (1.5.1)
-    protocol-http (0.51.0)
+    protocol-http (0.51.1)
     protocol-http1 (0.34.1)
       protocol-http (~> 0.22)
     protocol-http2 (0.22.1)
@@ -133,7 +133,7 @@ GEM
     rdoc (6.14.2)
       erb
       psych (>= 4.0.0)
-    regexp_parser (2.11.0)
+    regexp_parser (2.11.2)
     reline (0.6.2)
       io-console (~> 0.5)
     rspec (3.13.1)
