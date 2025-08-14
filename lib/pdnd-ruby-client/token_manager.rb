@@ -20,6 +20,7 @@ module PDND
       data = JSON.parse(File.read(@path))
       @token = data['token']
       @exp = data['exp']
+      [@token, @exp]
     end
 
     def save(token, exp)
@@ -29,7 +30,7 @@ module PDND
     end
 
     def valid?
-      @token && @exp && Time.now.to_i < @exp.to_i
+      @token.present? && @exp.present? && (Time.now.to_i < Time.new(@exp).to_i)
     end
   end
 end
