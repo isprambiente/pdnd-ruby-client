@@ -10,6 +10,7 @@ gem 'dotenv', '~> 3.1'
 gem 'faraday', '~> 2.13'
 gem 'json', '>= 2.0'
 gem 'jwt', '~> 3.1'
+gem 'uri', '~> 1.0', '>= 1.0.4'
 
 # Gemme di sviluppo e test
 group :development, :test do

@@ -201,6 +201,7 @@ DEPENDENCIES
   rspec (~> 3.12)
   rubocop (~> 1.58)
   simplecov (~> 0.22)
+  uri (~> 1.0, >= 1.0.4)
 
 BUNDLED WITH
    2.7.1
