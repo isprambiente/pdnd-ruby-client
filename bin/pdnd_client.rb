@@ -48,14 +48,14 @@ begin
   client.token = token
   client.token_exp = exp
 
-  if !options[:status_url].empty?
+  unless options[:status_url].empty?
     client.status_url = options[:status_url]
     code, response = client.check_status
     puts "🔍 Verifica token – codice: #{code}" if options[:debug]
     puts JSON.pretty_generate(response)
   end
 
-  if !options[:api_url].empty?
+  unless options[:api_url].empty?
     client.api_url = options[:api_url]
     client.filters = options[:filters]
     code, response = client.request_api
