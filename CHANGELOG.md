@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.1.6](https://github.com/isprambiente/pdnd-ruby-client/tree/v0.1.6) (2025-10-08)
+
+[Full Changelog](https://github.com/isprambiente/pdnd-ruby-client/compare/v0.1.5...v0.1.6)
+
 ## [v0.1.5](https://github.com/isprambiente/pdnd-ruby-client/tree/v0.1.5) (2025-08-14)
 
 [Full Changelog](https://github.com/isprambiente/pdnd-ruby-client/compare/v0.1.4...v0.1.5)
