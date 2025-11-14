@@ -26,6 +26,7 @@ OptionParser.new do |opts|
   opts.on('--api-url-filters STR', 'Filtri API (es. id=123)') { |v| options[:filters] = v }
   opts.on('--token-file PATH', 'File token') { |v| options[:token_file] = v }
   opts.on('--debug', 'Modalità debug') { options[:debug] = true }
+  opts.on('--pretty', "Abilita l'output dei json formattandoli in modo leggibile") { options[:pretty] = true }
   opts.on('--no-verify-ssl', 'Disabilita verifica SSL') { options[:verify_ssl] = false }
   opts.on('--save', 'Salva token') { options[:save] = true }
 end.parse!
@@ -51,16 +52,24 @@ begin
   unless options[:status_url].empty?
     client.status_url = options[:status_url]
     code, response = client.check_status
-    puts "🔍 Verifica token – codice: #{code}" if options[:debug]
-    puts JSON.pretty_generate(response)
+    if options[:debug] || options[:pretty]
+      puts "🔍 Richiesta API – codice: #{code}"
+      puts JSON.pretty_generate(response)
+    else
+      puts response.to_json
+    end
   end
 
   unless options[:api_url].empty?
     client.api_url = options[:api_url]
     client.filters = options[:filters]
     code, response = client.request_api
-    puts "✅ Codice: #{code}" if options[:debug]
-    puts JSON.pretty_generate(response)
+    if options[:debug] || options[:pretty]
+      puts "🔍 Richiesta API – codice: #{code}"
+      puts JSON.pretty_generate(response)
+    else
+      puts response.to_json
+    end
   end
 rescue PDND::APIError => e
   puts "⚠️ Errore: #{e.message}"

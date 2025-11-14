@@ -164,6 +164,7 @@ ruby bin/pdnd_client.rb --api-url "https://api.pdnd.example.it/resource" --confi
 - `--env` : Specifica l'ambiente da usare (es. collaudo, produzione). Default: `produzione`
 - `--config` : Specifica il percorso completo del file di configurazione (es: `--config /configs/sample.json`)
 - `--debug` : Abilita output dettagliato
+- `--pretty` : Abilita output dei json formattato in modalità leggibile
 - `--api-url` : URL dell’API da chiamare dopo la generazione del token
 - `--api-url-filters` : Filtri da applicare all'API (es. ?parametro=valore)
 - `--status-url` : URL dell’API di status per verificare la validità del token
@@ -189,6 +190,11 @@ ruby bin/pdnd_client.rb --status-url="https://api.pdnd.example.it/status" --conf
 ruby bin/pdnd_client.rb --debug --api-url="https://api.pdnd.example.it/resource"
 ```
 
+**Pretty attivo:**
+```bash
+ruby bin/pdnd_client.rb --pretty --api-url="https://api.pdnd.example.it/resource"
+```
+
 ### Opzione di aiuto
 
 Se esegui il comando con `--help` oppure senza parametri, viene mostrata una descrizione delle opzioni disponibili e alcuni esempi di utilizzo:
@@ -207,6 +213,7 @@ Opzioni:
                     Default: produzione
   --config          Specifica il percorso completo del file di configurazione
   --debug           Abilita output dettagliato
+  --pretty          Abilita output dei json formattato in modalità leggibile
   --api-url         URL dell’API da chiamare dopo la generazione del token
   --api-url-filters Filtri da applicare all'API (es. ?parametro=valore)
   --status-url      URL dell’API di status per verificare la validità del token
@@ -219,6 +226,7 @@ Esempi:
   ruby bin/pdnd_client.rb --api-url="https://api.pdnd.example.it/resource" --config /percorso/config.json
   ruby bin/pdnd_client.rb --status-url="https://api.pdnd.example.it/status" --config /percorso/config.json
   ruby bin/pdnd_client.rb --debug --api-url="https://api.pdnd.example.it/resource"
+  ruby bin/pdnd_client.rb --pretty --api-url="https://api.pdnd.example.it/resource"
 ```
 
 ## Variabili di ambiente supportate
