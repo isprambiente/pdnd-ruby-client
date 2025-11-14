@@ -39,20 +39,20 @@ module PDND
       log_api_search
 
       response = perform_request(@api_search.to_s)
+      body = response.body.force_encoding('UTF-8')
+      raise PDND::APIError.new(response.status, body) unless response.success?
 
-      raise PDND::APIError.new(response.status, response.body.force_encoding('UTF-8')) unless response.success?
-
-      puts "📡 Response: #{response.body}" if @debug
-      [response.status, JSON.parse(response.body)]
+      puts "📡 Response: #{body}" if @debug
+      [response.status, JSON.parse(body)]
     end
 
     def check_status
       validate_status_config
 
       response = perform_request(@status_url)
-
-      puts "📡 Status response: #{response.body}" if @debug
-      [response.status, JSON.parse(response.body)]
+      body = response.body.force_encoding('UTF-8')
+      puts "📡 Status response: #{body}" if @debug
+      [response.status, JSON.parse(body)]
     end
 
     private
