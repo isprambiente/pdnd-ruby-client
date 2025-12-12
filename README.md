@@ -1,5 +1,6 @@
 # pdnd-ruby-client
 ![CI](https://img.shields.io/github/actions/workflow/status/isprambiente/pdnd-ruby-client/ci.yml)
+![Security Audit](https://img.shields.io/github/actions/workflow/status/isprambiente/pdnd-ruby-client/security-audit.yml)
 ![Licenza MIT](https://img.shields.io/badge/license-MIT-green)
 ![Versione Ruby](https://img.shields.io/badge/ruby-%3E%3D3.2-blue)
 ![Ultima versione](https://img.shields.io/gem/v/pdnd-ruby-client)
