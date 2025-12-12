@@ -1,4 +1,9 @@
-# pdnd-ruby-client ![CI](https://img.shields.io/github/actions/workflow/status/isprambiente/pdnd-ruby-client/README.md) ![Versione Ruby](https://img.shields.io/badge/ruby-%3E%3D3.2-blue) ![Licenza MIT](https://img.shields.io/badge/license-MIT-green)
+# pdnd-ruby-client
+![CI](https://img.shields.io/github/actions/workflow/status/isprambiente/pdnd-ruby-client/ci.yml)
+![Licenza MIT](https://img.shields.io/badge/license-MIT-green)
+![Versione Ruby](https://img.shields.io/badge/ruby-%3E%3D3.2-blue)
+![Ultima versione](https://img.shields.io/gem/v/pdnd-ruby-client)
+![Download totali](https://img.shields.io/gem/dt/pdnd-ruby-client)
 
 Client Ruby per autenticazione e interazione con le API della Piattaforma Digitale Nazionale Dati (PDND).
 
