@@ -87,14 +87,14 @@ module PDND
     def load_private_key
       key = nil
 
-      if @priv_key.to_s.strip != ""
+      if @priv_key.to_s.strip != ''
         key = @priv_key
         debug_log('✅ Priv Key acquisita manualmente', '**********')
-      elsif @priv_key_path.to_s.strip != ""
+      elsif @priv_key_path.to_s.strip != ''
         key = File.read(@priv_key_path)
         debug_log('✅ Priv Key acquisita da file', '**********')
       else
-        raise PDND::ConfigError, "❌ Nessuna chiave privata o percorso fornito"
+        raise PDND::ConfigError, '❌ Nessuna chiave privata o percorso fornito'
       end
 
       OpenSSL::PKey::RSA.new(key)
