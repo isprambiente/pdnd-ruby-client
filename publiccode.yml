@@ -3,8 +3,8 @@ name: PDND Ruby Client
 applicationSuite: PDNDClient
 url: https://github.com/isprambiente/pdnd-ruby-client.git
 landingURL: https://github.com/isprambiente/pdnd-ruby-client
-softwareVersion: 0.1.9
-releaseDate: 2025-12-12
+softwareVersion: 0.1.11
+releaseDate: 2026-01-31
 platforms:
   - web
   - windows
