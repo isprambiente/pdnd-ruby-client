@@ -15,13 +15,14 @@ gem "uri", "~> 1.0", ">= 1.0.4"
 # Gemme di sviluppo e test
 group :development, :test do
   gem "rspec", "~> 3.12"
-  gem "rubocop", "~> 1.58"
 end
 
 group :development do
   gem "github_changelog_generator"
   gem "irb"
   gem "rdoc", "7.0.3"
+  gem 'rubocop', '~> 1.84'
+  gem "rubocop-rake", "~> 0.7"
 end
 
 group :test do

@@ -166,6 +166,9 @@ GEM
     rubocop-ast (1.49.0)
       parser (>= 3.3.7.2)
       prism (~> 1.7)
+    rubocop-rake (0.7.1)
+      lint_roller (~> 1.1)
+      rubocop (>= 1.72.1)
     ruby-progressbar (1.13.0)
     sawyer (0.9.3)
       addressable (>= 2.3.5)
@@ -201,7 +204,8 @@ DEPENDENCIES
   pdnd-ruby-client!
   rdoc (= 7.0.3)
   rspec (~> 3.12)
-  rubocop (~> 1.58)
+  rubocop (~> 1.84)
+  rubocop-rake (~> 0.7)
   simplecov (~> 0.22)
   uri (~> 1.0, >= 1.0.4)
 
