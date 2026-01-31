@@ -1,4 +1,4 @@
-name: 🚀 Release Gem
+name: Release Gem
 
 on:
   release:
@@ -8,21 +8,25 @@ jobs:
   release:
     runs-on: ubuntu-latest
 
+    env:
+      BUNDLE_DISABLE_DEFAULT_GEM: "true"
+
     steps:
-      - name: 🔁 Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: 💎 Setup Ruby
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '4.0'
+          bundler-cache: true
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: gem install github_changelog_generator
 
-      - name: 📚 Generate CHANGELOG.md
+      - name: Generate CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -32,24 +36,24 @@ jobs:
             --token $GITHUB_TOKEN \
             --future-release ${{ github.event.release.tag_name }}
 
-      - name: 🔍 Check for changes
+      - name: Check for changes
         id: changes
         run: |
           git diff --exit-code CHANGELOG.md || echo "modified=true" >> $GITHUB_OUTPUT
 
-      - name: 📤 Commit and Push CHANGELOG.md
+      - name: Commit and Push CHANGELOG.md
         if: steps.changes.outputs.modified == 'true'
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
           git add CHANGELOG.md
-          git commit -m "📚 Update CHANGELOG for release ${{ github.event.release.tag_name }}"
-          git push origin HEAD:main  # ✅ Fix per il push dal detached HEAD
+          git commit -m "Update CHANGELOG for release ${{ github.event.release.tag_name }}"
+          git push origin HEAD:main
 
-      - name: 🪄 Build the gem
-        run: gem build pdnd-ruby-client.gemspec
+      - name: Build the gem
+        run: gem build *.gemspec
 
-      - name: 🚀 Publish to RubyGems
+      - name: Publish to RubyGems
         env:
           GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
-        run: gem push pdnd-ruby-client-*.gem
+        run: gem push *.gem

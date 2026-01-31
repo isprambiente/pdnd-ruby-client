@@ -1,10 +1,13 @@
-name: 🚀 CI
+name: CI
 
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    env:
+      BUNDLE_DISABLE_DEFAULT_GEM: "true"
 
     strategy:
       matrix:
@@ -13,20 +16,21 @@ jobs:
     name: Test with Ruby ${{ matrix.ruby-version }}
 
     steps:
-      - name: 📥 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: 🧰 Setup Ruby ${{ matrix.ruby-version }}
+      - name: Setup Ruby ${{ matrix.ruby-version }}
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: |
           bundle install --jobs 4 --retry 3
 
-      - name: 🧪 Run RSpec
+      - name: Run RSpec
         run: bundle exec rspec
 
-      - name: 👮 Run RuboCop
+      - name: Run RuboCop
         run: bundle exec rubocop
