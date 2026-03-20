@@ -26,19 +26,26 @@ MIT
 2. Configura il file JSON con i parametri richiesti (esempio in `configs/sample.json`):
    ```json
     {
+      "attestazione": {
+        "kid": "kid",
+        "issuer": "issuer",
+        "clientId": "clientId",
+        "purposeId": "purposeId",
+        "privKeyPath": "/tmp/key.pem"
+      },
       "collaudo": {
         "kid": "kid",
         "issuer": "issuer",
         "clientId": "clientId",
         "purposeId": "purposeId",
-        "privKeyPath": "/tmp/key.priv"
+        "privKeyPath": "/tmp/key.pem"
       },
       "produzione": {
         "kid": "kid",
         "issuer": "issuer",
         "clientId": "clientId",
         "purposeId": "purposeId",
-        "privKeyPath": "/tmp/key.priv"
+        "privKeyPath": "/tmp/key.pem"
       }
     }
    ```
@@ -71,7 +78,10 @@ require "pdnd-ruby-client"
 # Inizializza la configurazione
 # Load the configuration from the specified JSON file and environment key.
 config = PDND::ConfigLoader.load("configs/sample.json")
+# Per produzione
 jwt = PDND::JWTGenerator.new(config)
+# Per collaudo o attestazione
+# jwt = PDND::JWTGenerator.new(config, "collaudo")
 # Inserisci tutta la chiave privata.
 # La chiave privata passata manualmente ha la priorità
 #    rispetto a quella inserita nel config file json.
@@ -167,7 +177,7 @@ ruby bin/pdnd_client.rb --api-url "https://api.pdnd.example.it/resource" --confi
 
 ### Opzioni disponibili
 
-- `--env` : Specifica l'ambiente da usare (es. collaudo, produzione). Default: `produzione`
+- `--env` : Specifica l'ambiente da usare (es. attestazione, collaudo, produzione). Default: `produzione`
 - `--config` : Specifica il percorso completo del file di configurazione (es: `--config /configs/sample.json`)
 - `--debug` : Abilita output dettagliato
 - `--pretty` : Abilita output dei json formattato in modalità leggibile
@@ -176,7 +186,7 @@ ruby bin/pdnd_client.rb --api-url "https://api.pdnd.example.it/resource" --confi
 - `--status-url` : URL dell’API di status per verificare la validità del token
 - `--json`: Stampa le risposte delle API in formato JSON
 - `--save`: Salva il token per evitare di richiederlo a ogni chiamata
-- `--no-verify-ssl`: Disabilita la verifica SSL (utile per ambienti di collaudo)
+- `--no-verify-ssl`: Disabilita la verifica SSL (utile per ambienti di attestazione o collaudo)
 - `--help`: Mostra questa schermata di aiuto
 
 ### Esempi
@@ -215,7 +225,7 @@ Utilizzo:
   ruby bin/pdnd_client.rb -c /percorso/config.json [opzioni]
 
 Opzioni:
-  --env             Specifica l'ambiente da usare (es. collaudo, produzione)
+  --env             Specifica l'ambiente da usare (es. attestazione, collaudo, produzione)
                     Default: produzione
   --config          Specifica il percorso completo del file di configurazione
   --debug           Abilita output dettagliato
@@ -225,7 +235,7 @@ Opzioni:
   --status-url      URL dell’API di status per verificare la validità del token
   --json            Stampa le risposte delle API in formato JSON
   --save            Salva il token per evitare di richiederlo a ogni chiamata
-  --no-verify-ssl   Disabilita la verifica SSL (utile per ambienti di collaudo)
+  --no-verify-ssl   Disabilita la verifica SSL (utile per ambienti di attestazione o collaudo)
   --help            Mostra questa schermata di aiuto
 
 Esempi:
@@ -263,10 +273,17 @@ Se un parametro non è presente nel file di configurazione, puoi definirlo come 
   }
 }
 ```
-## Esempio di configurazione per collaudo e prosuzione
+## Esempio di configurazione per attestazione, collaudo e produzione
 
 ```json
 {
+  "attestazione": {
+    "kid": "kid",
+    "issuer": "issuer",
+    "clientId": "clientId",
+    "purposeId": "purposeId",
+    "privKeyPath": "/tmp/key.pem"
+  },
   "collaudo": {
     "kid": "kid",
     "issuer": "issuer",

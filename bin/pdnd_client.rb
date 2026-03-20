@@ -20,7 +20,7 @@ options = {
 OptionParser.new do |opts|
   opts.banner = 'Usage: pdnd_client.rb [options]'
   opts.on('--config PATH', 'Path al file JSON') { |v| options[:config] = v }
-  opts.on('--env ENV', 'Ambiente (collaudo/produzione)') { |v| options[:env] = v }
+  opts.on('--env ENV', 'Ambiente (attestazione/collaudo/produzione)') { |v| options[:env] = v }
   opts.on('--status-url URL', 'URL per verifica token') { |v| options[:status_url] = v }
   opts.on('--api-url URL', 'URL API da chiamare') { |v| options[:api_url] = v }
   opts.on('--api-url-filters STR', 'Filtri API (es. id=123)') { |v| options[:filters] = v }
@@ -52,7 +52,7 @@ begin
   unless options[:status_url].empty?
     client.status_url = options[:status_url]
     code, response = client.check_status
-    if options[:debug] || options[:pretty]
+    if options[:pretty]
       puts "🔍 Richiesta API – codice: #{code}"
       puts JSON.pretty_generate(response)
     else
@@ -64,7 +64,7 @@ begin
     client.api_url = options[:api_url]
     client.filters = options[:filters]
     code, response = client.request_api
-    if options[:debug] || options[:pretty]
+    if options[:pretty]
       puts "🔍 Richiesta API – codice: #{code}"
       puts JSON.pretty_generate(response)
     else

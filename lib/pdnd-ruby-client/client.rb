@@ -51,7 +51,6 @@ module PDND
 
       response = perform_request(@status_url)
       body = response.body.force_encoding('UTF-8')
-      puts "📡 Status response: #{body}" if @debug
       [response.status, JSON.parse(body)]
     end
 

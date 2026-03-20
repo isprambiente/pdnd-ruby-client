@@ -14,7 +14,7 @@ require_relative 'errors'
 #   generator = PDND::JWTGenerator.new(config)
 #   token, exp = generator.generate_token
 # @attr [Hash] config Configurazione con parametri JWT
-# @attr [String] env Ambiente di esecuzione ('produzione' o 'collaudo')
+# @attr [String] env Ambiente di esecuzione ('produzione' o 'collaudo' o 'attestazione')
 # @attr [Boolean] debug Flag per attivare il logging
 # @attr [String] token Token di accesso ottenuto
 # @attr [String] token_exp Data di scadenza del token
@@ -31,7 +31,7 @@ module PDND
                   :token, :token_exp
 
     # @param config [Hash] Configurazione con chiavi come :issuer, :clientId, :privKeyPath, ecc.
-    # @param env [String] Ambiente ('produzione' o 'collaudo')
+    # @param env [String] Ambiente ('produzione' o 'collaudo' o 'attestazione')
     def initialize(config, env = 'produzione')
       @config     = config
       @env        = env
@@ -73,7 +73,10 @@ module PDND
 
     # Imposta endpoint e audience in base all'ambiente
     def configure_environment
-      if @env == 'collaudo'
+      if @env == 'attestazione'
+        @endpoint = 'https://auth.att.interop.pagopa.it/token.oauth2'
+        @audience = 'auth.att.interop.pagopa.it/client-assertion'
+      elsif @env == 'collaudo'
         @endpoint = 'https://auth.uat.interop.pagopa.it/token.oauth2'
         @audience = 'auth.uat.interop.pagopa.it/client-assertion'
       else
