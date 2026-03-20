@@ -2,7 +2,7 @@
 ![CI](https://img.shields.io/github/actions/workflow/status/isprambiente/pdnd-ruby-client/ci.yml?label=CI)
 ![Security Audit](https://img.shields.io/github/actions/workflow/status/isprambiente/pdnd-ruby-client/security-audit.yml?label=Security%20Audit)
 ![Licenza MIT](https://img.shields.io/badge/license-MIT-green)
-![Versione Ruby](https://img.shields.io/badge/ruby-%3E%3D3.2-blue)
+![Versione Ruby](https://img.shields.io/badge/ruby-%3E%3D3.3-blue)
 ![Ultima versione](https://img.shields.io/gem/v/pdnd-ruby-client)
 ![Download totali](https://img.shields.io/gem/dt/pdnd-ruby-client)
 
@@ -14,7 +14,7 @@ MIT
 
 ## Requisiti
 
-- Ruby >= 3.2 (versioni precedenti sono [EOL](https://endoflife.date/ruby))
+- Ruby >= 3.3 (versioni precedenti sono [EOL](https://endoflife.date/ruby))
 
 ## Installazione
 

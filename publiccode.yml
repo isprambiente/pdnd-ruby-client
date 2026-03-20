@@ -3,8 +3,8 @@ name: PDND Ruby Client
 applicationSuite: PDNDClient
 url: https://github.com/isprambiente/pdnd-ruby-client.git
 landingURL: https://github.com/isprambiente/pdnd-ruby-client
-softwareVersion: 0.1.12
-releaseDate: 2026-02-16
+softwareVersion: 0.1.13
+releaseDate: 2026-03-20
 platforms:
   - web
   - windows
@@ -28,7 +28,7 @@ description:
     documentation: https://github.com/isprambiente/pdnd-ruby-client?tab=readme-ov-file#pdnd-ruby-client---
     apiDocumentation: https://github.com/isprambiente/pdnd-ruby-client?tab=readme-ov-file#esempio-di-configurazione-minima
     features:
-      - Compatibile con Ruby 3.2 e versioni successive
+      - Compatibile con Ruby 3.3 e versioni successive
       - Supporta autenticazione OAuth2 con JWT Bearer Token
       - Gestione automatica del rinnovo del token di accesso
       - Facile integrazione con API RESTful di PDND
