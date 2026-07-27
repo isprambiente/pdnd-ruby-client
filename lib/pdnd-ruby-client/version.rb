@@ -2,6 +2,6 @@
 
 module PDND
   class ClientVersion
-    VERSION = '0.1.15'
+    VERSION = '1.0'
   end
 end
