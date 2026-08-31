@@ -6,7 +6,7 @@ require 'spec_helper'
 require 'pdnd-ruby-client/config_loader'
 require 'json'
 
-# rubocop:disable Metrics/BlockLength
+# rubocop:disable-next Metrics/BlockLength
 RSpec.describe PDND::ConfigLoader do
   let(:valid_json) do
     {
@@ -43,4 +43,3 @@ RSpec.describe PDND::ConfigLoader do
     end.to raise_error(/Ambiente/)
   end
 end
-# rubocop:enable Metrics/BlockLength

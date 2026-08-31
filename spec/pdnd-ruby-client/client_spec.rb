@@ -5,7 +5,7 @@
 require 'spec_helper'
 require 'pdnd-ruby-client/client'
 
-# rubocop:disable Metrics/BlockLength
+# rubocop:disable-next Metrics/BlockLength
 RSpec.describe PDND::Client do
   let(:config) { {} }
   let(:client) { described_class.new(config) }
@@ -69,4 +69,3 @@ RSpec.describe PDND::Client do
     end
   end
 end
-# rubocop:enable Metrics/BlockLength
